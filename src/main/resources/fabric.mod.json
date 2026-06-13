@@ -17,12 +17,15 @@
     "icon": "assets/lboatcam/icon.png",
     "environment": "client",
     "entrypoints": {
-    "main": [
-        "microwavedram.lboatcam.BoatCamMod"
-    ],
-    "modmenu": [
-        "microwavedram.lboatcam.config.ModMenuIntegration"
-    ]
+        "main": [
+            "microwavedram.lboatcam.BoatCamMod"
+        ],
+        "modmenu": [
+            "microwavedram.lboatcam.config.ModMenuIntegration"
+        ],
+        "debugify": [
+            "microwavedram.lboatcam.compat.LBoatCamDebuggifyCompat"
+        ]
     },
     "mixins": [
         "lboatcam.mixins.json"

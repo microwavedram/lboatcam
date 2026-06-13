@@ -17,6 +17,7 @@ import net.minecraft.client.option.Perspective;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 
 import java.lang.reflect.Field;
@@ -29,12 +30,17 @@ import static net.minecraft.util.Formatting.*;
 import static org.lwjgl.glfw.GLFW.*;
 
 public class BoatCamMod implements ModInitializer, LookDirectionChangingEvent {
+
+    private final KeyBinding.Category CATEGORY = KeyBinding.Category.create(
+            Identifier.of("lboatcam", "general")
+    );
+
     // key binds
-    private final KeyBinding TOGGLE = new KeyBinding("key.lboatcam.toggle", KEYSYM, -1, "lboatcam");
-    private final KeyBinding LOOK_BEHIND = new KeyBinding("key.lboatcam.lookbehind", KEYSYM, GLFW_KEY_B, "lboatcam");
-    private final KeyBinding LOOK_LEFT = new KeyBinding("key.lboatcam.lookleft", KEYSYM, -1, "lboatcam");
-    private final KeyBinding LOOK_RIGHT = new KeyBinding("key.lboatcam.lookright", KEYSYM, -1, "lboatcam");
-    private final KeyBinding RESET_CAMERA = new KeyBinding("key.lboatcam.resetcamera", KEYSYM, -1, "lboatcam");
+    private final KeyBinding TOGGLE = new KeyBinding("key.lboatcam.toggle", KEYSYM, -1, CATEGORY);
+    private final KeyBinding LOOK_BEHIND = new KeyBinding("key.lboatcam.lookbehind", KEYSYM, GLFW_KEY_B, CATEGORY);
+    private final KeyBinding LOOK_LEFT = new KeyBinding("key.lboatcam.lookleft", KEYSYM, -1, CATEGORY);
+    private final KeyBinding LOOK_RIGHT = new KeyBinding("key.lboatcam.lookright", KEYSYM, -1, CATEGORY);
+    private final KeyBinding RESET_CAMERA = new KeyBinding("key.lboatcam.resetcamera", KEYSYM, -1, CATEGORY);
 
     // things to remember temporarily
     private Perspective perspective;
